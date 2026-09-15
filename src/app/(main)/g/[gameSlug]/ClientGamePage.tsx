@@ -18,6 +18,7 @@ import { GameEmbedAspectRatio, GameType, PageVersion } from "@/types/GameType";
 import { UserType } from "@/types/UserType";
 import { getGame, getRatingCategories } from "@/requests/game";
 import { getSelf } from "@/requests/user";
+import StreamerNotifyButton from "@/components/StreamerNotifyButton";
 import Image from "@/compat/next-image";
 import {
   AlertTriangle,
@@ -1858,6 +1859,7 @@ export default function ClientGamePage({
                   </Vstack>
                 </Card>
               )}
+            <StreamerNotifyButton gameId={displayGame.id} user={user} />
             {displayGame.leaderboards &&
               displayGame.leaderboards.length > 0 && (
                 <Card className="order-10">

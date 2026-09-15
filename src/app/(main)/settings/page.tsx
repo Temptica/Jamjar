@@ -24,6 +24,7 @@ import { useEmojis } from "@/providers/useEmojis";
 import { createUserEmoji, deleteEmoji, updateEmoji } from "@/requests/emoji";
 import { readArray, readItem, unwrapArray } from "@/requests/helpers";
 import { BASE_URL } from "@/requests/config";
+import StreamerAlertSettings from "./StreamerAlertSettings";
 
 const PREFIX_CHARS = "abcdefghijklmnopqrstuvwxyz0123456789";
 const MIN_EMOTE_PREFIX_LENGTH = 4;
@@ -503,25 +504,6 @@ export default function UserPage() {
 
         <Stack align="stretch" direction="flex-col lg:flex-row">
           <Card className="flex-1">
-            <Vstack align="start" className="gap-3">
-              <div>
-                <Text color="text">Connected Twitch Channel</Text>
-                <Text color="textFaded" size="xs">
-                  If you want your Twitch account connected, contact Ategon on
-                  Discord.
-                </Text>
-              </div>
-              <Input
-                value={user.twitch ?? ""}
-                disabled
-                name="twitch"
-                placeholder="No Twitch channel connected"
-                type="text"
-              />
-            </Vstack>
-          </Card>
-
-          <Card className="flex-1">
             <Vstack align="start" className="gap-4">
               <Hstack align="start" className="w-full gap-3">
                 <Switch
@@ -557,6 +539,8 @@ export default function UserPage() {
             </Vstack>
           </Card>
         </Stack>
+
+        <StreamerAlertSettings user={user} onUserChange={setUser} />
 
         <Card>
           <Vstack align="start" className="gap-3">

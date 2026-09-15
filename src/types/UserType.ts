@@ -28,6 +28,8 @@ export interface UserType {
   admin: boolean;
   followingCount?: number;
   twitch: string;
+  twitchUserId?: string | null;
+  twitchLinkedAt?: string | null;
   pronouns?: string | null;
   links?: string[];
   linkLabels?: string[];
